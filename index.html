@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our solar system</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders+Display:wght@100..900&family=Bitter:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h5><a href="#first">Planets of our solar system</a></h5>
+        <ul>
+          Chapter Select:
+          <a href="#first"> <li>Our home, earth</li></a>
+          <a href="#the_sun"><li>The Sun</li></a>
+          <a href="#rocky_planets"> <li>The Inner 4</li></a>
+          <a href="#gas-giants"><li>The Outer 4</li></a>
+          <a href="#end-credits"><li>End Credits</li></a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="bg-video" id="first">
+        <video autoplay muted loop id="bgVideo">
+          <source src="./assets/videos/earthvid.mp4" type="video/mp4" />
+        </video>
+        <h1>Our home, earth</h1>
+      </section>
+
+      <!-- new section -->
+      <section class="bg-img circle-reveal" id="eight_planets">
+        <h1>A small blue rock</h1>
+        <h1>within a vast orbital system of 8 very unique planets</h1>
+      </section>
+
+      <section class="the_sun" id="the_sun">
+        <h3>At the heart of it all lies the Sun</h3>
+        <article>
+          <div class="sun-container">
+            <p>
+              a massive, fiery ball of hydrogen and helium undergoing constant
+              nuclear fusion.
+              </br>This process produces the light and heat that make
+              life on Earth possible.
+              </br>The Sun’s powerful gravitational pull
+              keeps the solar system together, binding everything
+              </br>— from tiny dust particles to massive planets —
+              </br>in a cosmic dance around it.
+              </br>The Sun's energy powers the seasons, weather patterns, and climates of its planets,
+              </br>making it the life source of our solar neighborhood.
+            </p>
+          </div>
+        </article>
+      </section>
+      
+      <!-- Rocky planets -->
+      <section class="information" id="rocky_planets">
+        <h3>The Inner 4:</h3>
+        <h4>Known as the "Rocky Planets"</h4>
+        <p>
+          Closest to the Sun are the four terrestrial planets, known as the
+          “inner planets.” They share a rocky composition and solid surfaces.
+        </p>
+        <article>
+          <div id="planet_display">
+            <div id="Mercury">
+              <img
+                src="./assets/planets/01_mercury.png"
+                alt="Mercury"
+                class="planets"
+                style="animation-delay: 0s;"
+              />
+              <p>
+                <span class="highlight">Mercury</span>, the smallest and fastest, orbits the Sun in just 88
+                days.
+              </p>
+            </div>
+            <div id="Venus">
+              <img
+                src="./assets/planets/02_venus.png"
+                alt="Venus"
+                class="planets"
+                style="animation-delay: 0.5s;"
+              />
+              <p>
+                <span class="highlight">Venus</span>, Earth’s “twin” in size, hosts intense heat and thick
+                clouds.
+              </p>
+            </div>
+            <div id="Earth">
+              <img
+                src="./assets/planets/03_earth.png"
+                alt="Earth"
+                class="planets"
+                style="animation-delay: 1s;"
+              />
+              <p>
+                <span class="highlight">Earth</span>, the only known home for life, supports diverse
+                ecosystems.
+              </p>
+            </div>
+            <div id="Mars">
+              <img
+                src="./assets/planets/04_mars.png"
+                alt="Mars"
+                class="planets"
+                style="animation-delay: 1.5s;"
+              />
+              <p>
+                <span class="highlight">Mars</span>, the Red Planet, has the tallest volcano in the solar
+                system.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Gass giants -->
+      <section class="information" id="gas-giants">
+        <h3>The Outer 4:</h3>
+        <h4>Refered to as "the Mighty Gas and Ice Giants"</h4>
+        <p>
+          Further from the Sun lie the gas giants: Jupiter and Saturn, and the
+          ice giants: Uranus and Neptune. Often refered to as the outer 4.
+        </p>
+        <article>
+          <div id="planet_display">
+            <div id="Jupiter">
+              <img
+                src="./assets/planets/05_jupiter.png"
+                alt="Jupiter"
+                class="planets"
+                style="animation-delay: 0s;"
+              />
+              <p>
+                <span class="highlight">Jupiter</span>, the largest planet, has swirling storms and the Great
+                Red Spot—a giant storm system that has raged for centuries.
+              </p>
+            </div>
+            <div id="Saturn">
+              <img
+                src="./assets/planets/06_saturn.png"
+                alt="Saturn"
+                class="planets"
+                style="animation-delay: 0.5s;"
+              />
+              <p>
+                <span class="highlight">Saturn</span>, known for its iconic rings, is surrounded by a complex
+                ring system of icy particles.
+              </p>
+            </div>
+            <div id="Uranus">
+              <img
+                src="./assets/planets/07_uranus.png"
+                alt="Uranus"
+                class="planets"
+                style="animation-delay: 1s;"
+              />
+              <p>
+                <span class="highlight">Uranus</span> orbits on its side, creating extreme seasons with 42
+                years of sunlight followed by 42 years of darkness. Its
+                blue-green color comes from methane in its atmosphere.
+              </p>
+            </div>
+            <div id="Neptune">
+              <img
+                src="./assets/planets/08_neptune.png"
+                alt="Neptune"
+                class="planets"
+                style="animation-delay: 1.5s;"
+              />
+              <p>
+                <span class="highlight">Neptune</span>, the farthest planet, has fierce winds reaching 1,500
+                miles per hour and a vibrant blue color due to atmospheric
+                methane. Its storms, like the Great Dark Spot, appear and
+                vanish.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Credits -->
+      <section class="bg-video" id="motivational">
+        <video autoplay muted loop id="bgVideo2">
+          <source src="./assets/videos/nightsky.mp4" type="video/mp4" />
+        </video>
+        <h1>
+          Somewhere, something incredible is waiting to be known </br>
+          - Carl Sagan
+        </h1>
+      </section>
+      <section class="end-credits" id="end-credits">
+        <h3>Credits</h3>
+        <article>
+          <div class="paragraph-container">
+            <p>
+              This scrolling background presentation has been part of a lection and assignment
+              at Kodehode. October and November 2024 <br />
+              <br />
+              The subject was presented by <br /><code>Emil Endresen</code><br />
+              <br />
+              Creatively altered and further developed by <br /><code>
+                <a href="https://github.com/banjohans" target="_blank">Hans Martin Rundberg Austestad</code
+              ></a>
+              <br />
+            </p>
+          </div>
+
+          <div class="paragraph-container">
+            <p>
+              Thank you for you attention <br />
+              <a href="#first"><code>Click to go back to top</code></a> <br />
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
