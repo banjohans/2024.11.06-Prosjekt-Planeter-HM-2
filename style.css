@@ -440,10 +440,10 @@ article {
 }
 
 .planets:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover for added effect */
+  transform: scale(2);
 }
 
-/* Apply different animation delays to each image for out-of-sync effect */
+/* De-sync animations for individual planet feeling */
 .planets:nth-child(1) {
   animation-delay: 0s;
 }
@@ -466,12 +466,19 @@ article {
     height: 100%;
   }
 
+  #rocky_planets,
+  #gas-giants {
+    background-size: auto 50%;
+    background-position: center top;
+    background-attachment: scroll;
+  }
+
   nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-around; /* Ensure items are evenly spaced */
-    align-items: center; /* Center the items vertically */
-    padding: 10px 5px; /* Adjust padding for smaller screens */
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 5px;
   }
 
   ul {
@@ -487,9 +494,9 @@ article {
 
   li {
     flex-direction: row;
-    font-size: 0.8rem; /* Reduce the font size for smaller screens */
-    text-align: center; /* Center align the text inside the list items */
-    margin-bottom: 0; /* Remove any margin to avoid stacking */
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 0;
   }
 
   h1,
@@ -523,8 +530,8 @@ article {
   }
 
   .bg-img {
-    background-size: contain; /* Ensure the whole image is visible */
-    background-position: center; /* Center the image */
+    background-size: contain;
+    background-position: center;
     background-attachment: scroll;
   }
 }
