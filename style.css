@@ -3,16 +3,6 @@
   box-sizing: border-box;
   font-family: "Roboto Slab", serif;
 }
-
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 900
-
-.roboto-slab-<uniquifier > {
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-} */
-
 html {
   scroll-behavior: smooth;
 }
@@ -24,23 +14,19 @@ html {
 }
 
 body {
+  display: flex;
   scroll-snap-type: y mandatory; /* Snapper til vertikal scrolling */
   overflow-y: scroll;
   scroll-behavior: smooth;
   min-height: 100svh;
-  font-family: "Agdasima", sans-serif;
+  font-family: "Roboto Slab", serif;
+  width: 100vw;
 }
 
-a {
-  text-decoration: none;
-  color: #181718;
+header {
+  width: 100vw;
+  display: flex;
 }
-
-a:hover {
-  color: #e97d35;
-  transition: 0.6s;
-}
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -49,11 +35,41 @@ nav {
   padding: 10px 20px;
   position: fixed;
   width: 100%;
+  flex-wrap: wrap;
   z-index: 100;
 }
 
+a {
+  text-decoration: none;
+  color: #181718;
+  transition: color 0.6s ease; /* Smooth color transition */
+}
+
+a:hover {
+  color: #e97d35;
+  animation: textPulseGlow 2.5s infinite; /* Apply pulsating glow animation */
+}
+
+/* Pulsating effect on hover */
+@keyframes textPulseGlow {
+  0% {
+    text-shadow: 0 0 14px rgba(233, 125, 53, 0.8),
+      0 0 20px rgba(233, 125, 53, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(233, 125, 53, 0.2),
+      0 0 30px rgba(233, 125, 53, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(233, 125, 53, 0.8),
+      0 0 20px rgba(233, 125, 53, 0.6);
+  }
+}
+
+
 ul {
-  font-size: 30px;
+  display: flex;
+  font-size: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,47 +82,47 @@ ul {
 li {
   display: flex;
   justify-content: center;
-  font-size: 20px;
+  font-size: 0.7rem;
 }
 
 .highlight {
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: #951111;
 }
 
 section {
   scroll-snap-align: start; /* Snapper hver seksjon til toppen */
   min-height: 100vh; /* Sørger for at hver seksjon fyller hele skjermen */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 2rem;
   padding: 20px 40px;
   background-color: hsla(240, 96%, 9%, 5%);
   color: antiquewhite;
   border-radius: 50px;
   letter-spacing: 0.6px;
-  /* width: 100%; */
 }
 
 h3 {
-  font-size: 60px;
+  font-size: 2rem;
   margin-bottom: 60px;
   text-align: center;
 }
 
 h4 {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   margin-bottom: 60px;
   text-align: center;
 }
 
 h5 {
-  font-size: 60px;
+  font-size: 1.5rem;
   color: antiquewhite;
   margin-bottom: 10px;
   text-align: center;
@@ -114,7 +130,7 @@ h5 {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   letter-spacing: 0.6px;
   line-height: 1.2;
   margin: 20px 20px 80px 20px;
@@ -168,18 +184,18 @@ article {
 }
 
 .information {
-  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  /* background-color: rgb(0, 22, 5); */
+  align-items: center;
+  text-align: center;
   color: aliceblue;
+  width: 100%;
+  /* background-color: rgb(0, 22, 5); */
 }
 
 #the_sun {
   color: aliceblue;
-  height: 100vh;
+  height: 130vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,7 +203,12 @@ article {
   background-image: url(./assets/sun_ball.png);
   background-size: cover;
   background-attachment: fixed;
+  /* height: 100%; */
   /* color: aliceblue; */
+}
+
+#the_sun p{
+  font-size: clamp(.5rem, 1rem, 3rem);
 }
 
 .bg-img {
@@ -235,37 +256,66 @@ article {
 }
 
 #eight_planets {
+  display: flex;
   background-image: url(./assets/solar_system.jpg);
-  background-size: cover;
+  background-size: contain;
+  background-color: black;
+}
+
+#eight_planets h1 {
+  padding-top: 20rem;
+font-size: clamp(.5rem, 1rem, 3rem);
 }
 
 #rocky_planets {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  flex-wrap: wrap;
   align-items: center;
   padding-top: 130px;
   background-image: url(./assets/space_bg.jpg);
   background-attachment: fixed;
   background-size: cover;
+  min-height: 100vh;
+  width: 100%;
 }
 
 #gas-giants {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   align-items: center;
   padding-top: 130px;
   background-image: url(./assets/space_bg.jpg);
   background-attachment: fixed;
   background-size: cover;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  #planet_display {
+    flex-direction: column;
+    align-items: center;
+  }
+  #planet_display > div {
+    margin-bottom: 20px;
+  }
 }
 
 #planet_display {
   display: flex;
+  flex-direction: row;
+  /* align-content: center; */
   justify-content: space-around;
   gap: 40px;
+  height: auto;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+#planet_display p {
+  font-size: 0.5rem;
 }
 
 #end_credits {
@@ -276,6 +326,7 @@ article {
 .paragraph-container {
   padding: 20px 20px 20px 20px;
   display: flex;
+  min-width: 200px;
 }
 
 .paragraph-container a {
@@ -285,7 +336,7 @@ article {
 }
 
 .planets {
-  max-height: 200px;
+  max-height: 100px;
   animation: levitate 3s ease-in-out infinite;
 }
 
@@ -320,11 +371,12 @@ article {
   animation-delay: 1.5s;
 }
 
-/* Mobile-specific adjustments for smartphones */
-@media (max-width: 800px) {
+/* Specific for smartphone */
+@media (max-width: 600px) {
   #bgVideo {
     height: 100%;
   }
+}
 
   nav {
     display: flex;
@@ -337,7 +389,7 @@ article {
   ul {
     display: flex;
     flex-direction: row; /* Ensure items are side by side */
-    font-size: 12px;
+    font-size: 0.8rem;
     justify-content: space-between; /* Space out the nav items */
     align-items: center; /* Center vertically */
     width: 100%; /* Make sure the ul takes the full width */
@@ -347,7 +399,7 @@ article {
 
   li {
     flex-direction: row;
-    font-size: 12px; /* Reduce the font size for smaller screens */
+    font-size: 0.8rem; /* Reduce the font size for smaller screens */
     text-align: center; /* Center align the text inside the list items */
     margin-bottom: 0; /* Remove any margin to avoid stacking */
   }
@@ -376,8 +428,10 @@ article {
     font-size: 1rem;
   }
   article {
+    display: flex;
     width: 95%;
     padding: 10px;
+    justify-content: center;
   }
 
   .bg-img {
