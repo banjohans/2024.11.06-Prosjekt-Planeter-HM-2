@@ -14,7 +14,6 @@
       <nav>
         <h5><a href="#first">The Solar System</a></h5>
         <ul>
-          Chapter Select:
           <a href="#first"> <li>Earth</li></a>
           <a href="#the_sun"><li>Sun</li></a>
           <a href="#rocky_planets"> <li>Inner 4</li></a>
@@ -25,17 +24,18 @@
     </header>
     <main>
       <section class="bg-video" id="first">
-        <video autoplay muted loop id="bgVideo">
+        <video autoplay muted loop playsinline id="bgVideo">
           <source src="./assets/videos/earthvid.mp4" type="video/mp4" />
         </video>
         <h1>Our home, earth</h1>
       </section>
 
-      <!-- new section -->
+      <!-- Eight planets section -->
       <section class="bg-img circle-reveal" id="eight_planets">
         <h1>A small blue rock within a vast orbital system of 8 very unique planets</h1>
       </section>
 
+      <!-- The Sun Section -->
       <section class="the_sun" id="the_sun">
         <h3>At the heart of it all lies the Sun</h3>
         <article>
@@ -55,7 +55,7 @@
       <!-- Rocky planets -->
       <section class="information" id="rocky_planets">
         <h3>The Inner 4:</h3>
-        <h4>Known as the "Rocky Planets"</h4>
+        <h4>The "Rocky Planets"</h4>
         <p>
           Closest to the Sun are the four terrestrial planets, known as the
           “inner planets.”
@@ -115,10 +115,24 @@
         </article>
       </section>
 
+      <!-- Asteroid belt -->
+      <section class="bg-video" id="asteroids">
+         <video autoplay muted loop playsinline id="bgVideo">
+          <source src="./assets/videos/asteroidbelt.mp4" type="video/mp4" />
+        </video>
+        <article>
+          <div class="asteroid-text">
+            <p>
+              An asteroid belt outside of Mars is a vast ring of rocky debris, ranging from small stones to the dwarf planet Ceres. It’s thought to be remnants of a planet that never formed due to Jupiter's strong gravitational pull.
+            </p>
+          </div>
+        </article>
+      </section>
+
       <!-- Gass giants -->
       <section class="information" id="gas-giants">
         <h3>The Outer 4:</h3>
-        <h4>"Mighty Gas and Ice Giants"</h4>
+        <h4>The Mighty "Gas and Ice Giants"</h4>
         <p>
           Further from the Sun lie the gas giants: Jupiter and Saturn, and the
           ice giants: Uranus and Neptune. Often refered to as the outer 4.
@@ -182,7 +196,7 @@
 
       <!-- Credits -->
       <section class="bg-video" id="motivational">
-        <video autoplay muted loop id="bgVideo2">
+        <video autoplay muted loop playsinline id="bgVideo2">
           <source src="./assets/videos/nightsky.mp4" type="video/mp4" />
         </video>
         <h1>
@@ -196,7 +210,7 @@
           <div class="paragraph-container">
             <p>
               This scrolling background presentation has been part of a lection and assignment
-              at Kodehode. October and November 2024 <br />
+              at Kodehode.<br /> October and November 2024 <br />
               <br />
               The subject was presented by <br /><code>Emil Endresen</code><br />
               <br />

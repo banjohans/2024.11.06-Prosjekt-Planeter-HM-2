@@ -71,7 +71,6 @@ a:hover {
   }
 }
 
-
 ul {
   display: flex;
   font-size: 0.5rem;
@@ -112,7 +111,7 @@ section {
 h1 {
   font-size: 2rem;
   padding: 20px 40px;
-  background-color: hsla(240, 96%, 9%, 5%);
+  background-color: hsla(240, 96%, 9%, 50%);
   color: antiquewhite;
   border-radius: 50px;
   letter-spacing: 0.6px;
@@ -158,6 +157,17 @@ p {
   font-size: 1.2rem;
   line-height: 1.5;
   margin: 0;
+}
+
+.asteroid-text p {
+  color: aliceblue;
+  background-color: rgba(149, 17, 17, 0.6);
+  border-radius: 100px;
+  width: 300px;
+  padding: 30px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
 
 .gas-giants p {
@@ -210,14 +220,48 @@ article {
   align-items: center;
   flex-direction: column;
   background-image: url(./assets/sun_ball.png);
-  background-size:contain;
+  background-size: cover;
+  background-position: top;
   background-attachment: fixed;
   /* height: 100%; */
-  /* color: aliceblue; */
 }
 
-#the_sun p{
-  font-size: clamp(.5rem, 1rem, 3rem);
+#the_sun h3 {
+  animation: sunTextPulse 10s infinite;
+}
+
+@keyframes sunTextPulse {
+  0% {
+    font-size: 1.2em;
+  }
+  50% {
+    font-size: 1.3em;
+  }
+  100% {
+    font-size: 1.2em;
+  }
+}
+
+#the_sun p {
+  display: flex;
+  flex-wrap: wrap;
+  color: aliceblue;
+  font-size: clamp(0.5rem, 1rem, 3rem);
+  /* background-color: rgba(233, 125, 53, 0.8); */
+  border-radius: 20px;
+  animation: backgroundColorPulse 3s infinite;
+}
+
+@keyframes backgroundColorPulse {
+  0% {
+    background-color: rgba(195, 14, 4, 0.8);
+  }
+  50% {
+    background-color: rgba(233, 125, 53, 0.6);
+  }
+  100% {
+    background-color: rgba(195, 14, 4, 0.8);
+  }
 }
 
 .bg-img {
@@ -232,7 +276,7 @@ article {
 
 .bg-video {
   position: relative;
-  min-height: 100vh; /* Ensure it covers the full screen height */
+  min-width: 100vw; /* Ensure it covers the full screen height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -246,7 +290,8 @@ article {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  filter: blur(3px);
+  filter: blur(2px);
+  pointer-events: none;
 }
 
 #bgVideo2 {
@@ -257,6 +302,7 @@ article {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  pointer-events: none;
 }
 
 #first {
@@ -267,13 +313,15 @@ article {
 #eight_planets {
   display: flex;
   background-image: url(./assets/solar_system.jpg);
-  background-size: contain;
+  background-size: cover;
+  background-position: right;
   background-color: black;
 }
 
 #eight_planets h1 {
-  padding-top: 20rem;
-font-size: clamp(.5rem, 1rem, 3rem);
+  /* padding-top: 20rem; */
+  font-size: clamp(0.5rem, 1rem, 3rem);
+  margin-top: 20rem;
 }
 
 #rocky_planets {
@@ -302,14 +350,38 @@ font-size: clamp(.5rem, 1rem, 3rem);
 }
 
 @media (max-width: 800px) {
-  
-  #planet_display {
+  nav {
+    flex-direction: column;
+    padding: 10px;
+    max-height: 100vh; /* Prevents the navbar from exceeding screen height */
+    overflow-y: auto; /* Allows scrolling within the navbar if needed */
+  }
+
+  ul {
     flex-direction: column;
     align-items: center;
+    gap: 10px; /* Reduce gap for mobile */
+    width: 100%;
   }
-  #planet_display > div {
-    margin-bottom: 20px;
+
+  li {
+    font-size: 1rem; /* Increase readability */
+    padding: 5px 0; /* Add spacing between items */
   }
+
+  /* Adjust title font size */
+  h5 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+}
+
+#planet_display {
+  flex-direction: column;
+  align-items: center;
+}
+#planet_display > div {
+  margin-bottom: 20px;
 }
 
 #planet_display {
@@ -325,7 +397,7 @@ font-size: clamp(.5rem, 1rem, 3rem);
 }
 
 #planet_display p {
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   width: 50vw;
 }
 
@@ -354,10 +426,16 @@ font-size: clamp(.5rem, 1rem, 3rem);
 @keyframes levitate {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-5px, -5px); /* Move left and up */
   }
   50% {
-    transform: translateY(-10px);
+    transform: translate(5px, -10px); /* Move right and up */
+  }
+  75% {
+    transform: translate(-5px, -5px); /* Move left and down */
   }
 }
 
@@ -387,7 +465,6 @@ font-size: clamp(.5rem, 1rem, 3rem);
   #bgVideo {
     height: 100%;
   }
-}
 
   nav {
     display: flex;
@@ -399,13 +476,13 @@ font-size: clamp(.5rem, 1rem, 3rem);
 
   ul {
     display: flex;
-    flex-direction: row; /* Ensure items are side by side */
+    flex-direction: row;
     font-size: 0.8rem;
-    justify-content: space-between; /* Space out the nav items */
-    align-items: center; /* Center vertically */
-    width: 100%; /* Make sure the ul takes the full width */
-    padding-left: 0;
-    padding-right: 0;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 
   li {
