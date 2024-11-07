@@ -50,6 +50,7 @@ a {
   transition: color 0.6s ease; /* Smooth color transition */
 }
 
+/* Adding glowing firey animation mainly appointed to the header and nav links */
 a:hover {
   color: #e97d35;
   animation: textPulseGlow 2.5s infinite; /* Apply pulsating glow animation */
@@ -97,7 +98,8 @@ li {
   display: inline-block;
   overflow: hidden;
 }
-
+/* Adding a radar-like animation to scan over the planet names,
+to make everything feel a little more space shipey */
 .highlight::before {
   content: "";
   position: absolute;
@@ -108,13 +110,16 @@ li {
   background: linear-gradient(
     90deg,
     transparent 45%,
-    rgba(0, 150, 50, 0.6), /* Semi-transparent green line */
-    transparent 60%
-);
+    rgba(0, 150, 50, 0.6),
+    /* Semi-transparent green line */ transparent 60%
+  );
 
+  /* set animation time */
   animation: radarScan 5s linear infinite; /* Adjust timing as desired */
 }
 
+/* setting some delay parameter classes to customize radar scans,
+added as class to the HTML */
 .highlight.delay-1::before {
   animation-delay: 0.3s; /* Adjust as needed */
 }
@@ -131,6 +136,7 @@ li {
   animation-delay: 7s;
 }
 
+/* The actual radar keyframes */
 @keyframes radarScan {
   0% {
     left: -100%; /* Start off-screen */
@@ -140,7 +146,7 @@ li {
   }
 }
 
-
+/* Some rest code from our lection with Emil that I have been building upon */
 section {
   display: flex;
   /* width: 100%; */
@@ -190,6 +196,8 @@ p {
   margin: 20px 20px 80px 20px;
 }
 
+/* Some technical and boring class tweaks, I may have lost sight of 
+duplicate code lines at many points */
 .sun-container {
   display: flex;
   justify-content: center;
@@ -273,10 +281,12 @@ article {
   /* height: 100%; */
 }
 
+/* Some animation to make the sun chapter header sublty pulsate */
 #the_sun h3 {
   animation: sunTextPulse 10s infinite;
 }
 
+/* Set a variable that utilizes size pulsation */
 @keyframes sunTextPulse {
   0% {
     font-size: 1.2em;
@@ -289,6 +299,8 @@ article {
   }
 }
 
+/* Also, created a background pulse between orange and red,
+first and foremost to secure readability on top of an untidy picture */
 #the_sun p {
   display: flex;
   flex-wrap: wrap;
@@ -299,6 +311,7 @@ article {
   animation: backgroundColorPulse 3s infinite;
 }
 
+/* Background color change animataion for the Sun chapter */
 @keyframes backgroundColorPulse {
   0% {
     background-color: rgba(195, 14, 4, 0.8);
@@ -329,6 +342,8 @@ article {
   align-items: center;
 }
 
+/* It took a while to figure out that I needed a pointer-events:none command
+to make video work better on a cellphone */
 #bgVideo {
   position: absolute;
   top: 0;
@@ -352,6 +367,7 @@ article {
   pointer-events: none;
 }
 
+/* For navigation and background */
 #first {
   background: url(./assets/bassfilm.mp4);
   background-size: cover;
@@ -371,6 +387,7 @@ article {
   margin-top: 20rem;
 }
 
+/* I was lost in the flex at a point here, it's probably overcoded */
 #rocky_planets {
   display: flex;
   flex-direction: column;
@@ -396,6 +413,7 @@ article {
   height: auto;
 }
 
+/* Media definitions, I probably got a bit lost here */
 @media (max-width: 800px) {
   nav {
     flex-direction: column;
@@ -466,6 +484,7 @@ article {
   font-weight: normal;
 }
 
+/* The levitation effect for the planets, in two axis'es */
 .planets {
   max-height: 100px;
   animation: levitate 3s ease-in-out infinite;
@@ -487,11 +506,13 @@ article {
   }
 }
 
+/* This one isn't working, but I wasn't able to debug it before I had to 
+hand in the assignment */
 .planets:hover {
   transform: scale(2);
 }
 
-/* De-sync animations for individual planet feeling */
+/* Another de-sync, delay animation for individual planet feeling */
 .planets:nth-child(1) {
   animation-delay: 0s;
 }
@@ -508,7 +529,8 @@ article {
   animation-delay: 1.5s;
 }
 
-/* Specific for smartphone */
+/* Another media definition for smartphones.
+I need to look more into this side of the game */
 @media (max-width: 600px) {
   #bgVideo {
     height: 100%;
@@ -584,6 +606,8 @@ article {
   }
 }
 
+/* This code is for the green submarine-ish periscope grid and background
+for the planet presentations. */
 #Mercury,
 #Venus,
 #Earth,
@@ -604,7 +628,7 @@ article {
   justify-content: center;
   align-items: center;
   box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.8),
-    inset 0px 0px 10px rgba(255, 255, 255, .2); /* Shadow for a glassy effect */
+    inset 0px 0px 10px rgba(255, 255, 255, 0.2); /* Shadow for a glassy effect */
   backdrop-filter: blur(4px) contrast(1.2); /* Optional: blur and contrast for glassy effect */
 }
 
@@ -617,7 +641,7 @@ article {
 #Saturn::before,
 #Uranus::before,
 #Neptune::before {
-  content: "";
+  content: ""; /* One of the more confusing facts is that this line is the one that is drawing the grid */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -625,7 +649,7 @@ article {
   height: 120%;
   border-radius: 50%;
   background: inherit; /* Use the same background as the planet for seamlessness */
-  transform: translate(-50%, -50%) scale(.7); Increase scale for magnification
+  transform: translate(-50%, -50%) scale(0.7); /* Increase scale for magnification */
   background-size: 150% 150%; /* Adjust to scale up the background for magnification */
   background-position: center;
   z-index: 1;
@@ -633,7 +657,6 @@ article {
   pointer-events: none;
 }
 
-/* Adding grid lines for a lens scope effect */
 #Mercury::after,
 #Venus::after,
 #Earth::after,
