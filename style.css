@@ -91,9 +91,55 @@ li {
 }
 
 .highlight {
-  font-size: 1.2rem;
+  font-size: 1.9rem;
   color: #951111;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 }
+
+.highlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start the line off-screen to the left */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 45%,
+    rgba(0, 150, 50, 0.6), /* Semi-transparent green line */
+    transparent 60%
+);
+
+  animation: radarScan 5s linear infinite; /* Adjust timing as desired */
+}
+
+.highlight.delay-1::before {
+  animation-delay: 0.3s; /* Adjust as needed */
+}
+
+.highlight.delay-2::before {
+  animation-delay: 1.2s;
+}
+
+.highlight.delay-3::before {
+  animation-delay: 4s;
+}
+
+.highlight.delay-4::before {
+  animation-delay: 7s;
+}
+
+@keyframes radarScan {
+  0% {
+    left: -100%; /* Start off-screen */
+  }
+  100% {
+    left: 100%; /* End off-screen on the right */
+  }
+}
+
 
 section {
   display: flex;
@@ -171,6 +217,7 @@ p {
 }
 
 .gas-giants p {
+  display: flex;
   font-size: 24px;
   letter-spacing: 0.6px;
   line-height: 1.2;
@@ -399,6 +446,7 @@ article {
 #planet_display p {
   font-size: 0.8rem;
   width: 50vw;
+  color: #00d073;
 }
 
 #end_credits {
@@ -534,4 +582,80 @@ article {
     background-position: center;
     background-attachment: scroll;
   }
+}
+
+#Mercury,
+#Venus,
+#Earth,
+#Mars,
+#Jupiter,
+#Saturn,
+#Uranus,
+#Neptune {
+  position: relative;
+  border: solid 2px #039553;
+  background-color: rgba(51, 41, 167, 0.2);
+  border-radius: 50%;
+  width: 500px; /* Adjust for the size of the planets */
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.8),
+    inset 0px 0px 10px rgba(255, 255, 255, .2); /* Shadow for a glassy effect */
+  backdrop-filter: blur(4px) contrast(1.2); /* Optional: blur and contrast for glassy effect */
+}
+
+/* Lens effect inside the "planet" */
+#Mercury::before,
+#Venus::before,
+#Earth::before,
+#Mars::before,
+#Jupiter::before,
+#Saturn::before,
+#Uranus::before,
+#Neptune::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: inherit; /* Use the same background as the planet for seamlessness */
+  transform: translate(-50%, -50%) scale(.7); Increase scale for magnification
+  background-size: 150% 150%; /* Adjust to scale up the background for magnification */
+  background-position: center;
+  z-index: 1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Adding grid lines for a lens scope effect */
+#Mercury::after,
+#Venus::after,
+#Earth::after,
+#Mars::after,
+#Jupiter::after,
+#Saturn::after,
+#Uranus::after,
+#Neptune::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Horizontal grid lines */ linear-gradient(
+      #029c1633 1px,
+      transparent 1px
+    ),
+    /* Vertical grid lines */
+      linear-gradient(90deg, #029c1633 1px, transparent 1px);
+  background-size: 50px 50px; /* Grid density for a lens effect */
+  z-index: 2;
+  opacity: 0.7;
 }
